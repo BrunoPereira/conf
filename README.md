@@ -23,16 +23,16 @@ the command name unless the name is overridden.
 As an example, this config struct:
 ```
 	type ip struct {
-		Name string `conf:"default:localhost,env:IP_NAME_VAR"`
+		Name string `conf:"default:localhost;env:IP_NAME_VAR"`
 		IP   string `conf:"default:127.0.0.0"`
 	}
 	type Embed struct {
 		Name     string        `conf:"default:bill"`
-		Duration time.Duration `conf:"default:1s,flag:e-dur,short:d"`
+		Duration time.Duration `conf:"default:1s;flag:e-dur;short:d"`
 	}
 	type config struct {
 		AnInt   int    `conf:"default:9"`
-		AString string `conf:"default:B,short:s"`
+		AString string `conf:"default:B;short:s"`
 		Bool    bool
 		Skip    string `conf:"-"`
 		IP      ip

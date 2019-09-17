@@ -17,16 +17,16 @@ const (
 )
 
 type ip struct {
-	Name string `conf:"default:localhost,env:IP_NAME_VAR"`
+	Name string `conf:"default:localhost;env:IP_NAME_VAR"`
 	IP   string `conf:"default:127.0.0.0"`
 }
 type Embed struct {
 	Name     string        `conf:"default:bill"`
-	Duration time.Duration `conf:"default:1s,flag:e-dur,short:d"`
+	Duration time.Duration `conf:"default:1s;flag:e-dur;short:d"`
 }
 type config struct {
 	AnInt   int    `conf:"default:9"`
-	AString string `conf:"default:B,short:s"`
+	AString string `conf:"default:B;short:s"`
 	Bool    bool
 	Skip    string `conf:"-"`
 	IP      ip
@@ -190,7 +190,7 @@ func TestErrors(t *testing.T) {
 		{
 			f := func(t *testing.T) {
 				var cfg struct {
-					TestInt    int `conf:"required, default:1"`
+					TestInt    int `conf:"required; default:1"`
 					TestString string
 					TestBool   bool
 				}
@@ -207,7 +207,7 @@ func TestErrors(t *testing.T) {
 		{
 			f := func(t *testing.T) {
 				var cfg struct {
-					testInt    int `conf:"required, default:1"`
+					testInt    int `conf:"required; default:1"`
 					testString string
 					testBool   bool
 				}

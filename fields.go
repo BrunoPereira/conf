@@ -143,7 +143,7 @@ func parseTag(tagStr string) (fieldOptions, error) {
 		return f, nil
 	}
 
-	tagParts := strings.Split(tagStr, ",")
+	tagParts := strings.Split(tagStr, ";")
 	for _, tagPart := range tagParts {
 		vals := strings.SplitN(tagPart, ":", 2)
 		tagProp := vals[0]
